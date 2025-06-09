@@ -1,1 +1,5 @@
-flask joblib numpy sqlite3
+flask 
+joblib 
+numpy 
+sqlite3 
+gunicorn
