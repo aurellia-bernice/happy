@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Prediction</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #34495e;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      input[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+      h2 {
+        color: #27ae60;
+        text-align: center;
+        margin-top: 20px;
+      }
+      a {
+        display: block;
+        text-align: center;
+        color: #e74c3c;
+        text-decoration: none;
+        margin-top: 10px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Breast Tumor Detection</h1>
+
+      <form action="/predict" method="POST">
+        <label for="user_name">Your Name:</label>
+        <input type="text" id="user_name" name="user_name" required />
+
+        <label for="mean_radius">Mean Radius:</label>
+        <input type="text" id="mean_radius" name="mean_radius" required />
+
+        <label for="mean_texture">Mean Texture:</label>
+        <input type="text" id="mean_texture" name="mean_texture" required />
+
+        <label for="mean_perimeter">Mean Perimeter:</label>
+        <input type="text" id="mean_perimeter" name="mean_perimeter" required />
+
+        <label for="mean_area">Mean Area:</label>
+        <input type="text" id="mean_area" name="mean_area" required />
+
+        <label for="mean_smoothness">Mean Smoothness:</label>
+        <input
+          type="text"
+          id="mean_smoothness"
+          name="mean_smoothness"
+          required
+        />
+
+        <label for="mean_compactness">Mean Compactness:</label>
+        <input
+          type="text"
+          id="mean_compactness"
+          name="mean_compactness"
+          required
+        />
+
+        <label for="mean_concavity">Mean Concavity:</label>
+        <input type="text" id="mean_concavity" name="mean_concavity" required />
+
+        <label for="mean_concave_points">Mean Concave Points:</label>
+        <input
+          type="text"
+          id="mean_concave_points"
+          name="mean_concave_points"
+          required
+        />
+
+        <label for="mean_symmetry">Mean Symmetry:</label>
+        <input type="text" id="mean_symmetry" name="mean_symmetry" required />
+
+        <label for="mean_fractal_dimension">Mean Fractal Dimension:</label>
+        <input
+          type="text"
+          id="mean_fractal_dimension"
+          name="mean_fractal_dimension"
+          required
+        />
+
+        <input type="submit" value="Predict" />
+      </form>
+
+      {% if prediction %}
+      <h2>Result: {{ prediction }}</h2>
+      {% endif %}
+
+      <p>
+        <a href="{{ url_for('output') }}">View Database</a>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Prediction Database</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px;
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #3498db;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      a {
+        display: block;
+        text-align: center;
+        color: #e74c3c;
+        text-decoration: none;
+        margin-top: 20px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Database</h1>
+      <table>
+        <tr>
+          <th>User Name</th>
+          <th>Mean Radius</th>
+          <th>Mean Texture</th>
+          <th>Mean Perimeter</th>
+          <th>Mean Area</th>
+          <th>Mean Smoothness</th>
+          <th>Mean Compactness</th>
+          <th>Mean Concavity</th>
+          <th>Mean Concave Points</th>
+          <th>Mean Symmetry</th>
+          <th>Mean Fractal Dimension</th>
+          <th>Prediction</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+          <td>{{ record[0] }}</td>
+          <td>{{ record[1] }}</td>
+          <td>{{ record[2] }}</td>
+          <td>{{ record[3] }}</td>
+          <td>{{ record[4] }}</td>
+          <td>{{ record[5] }}</td>
+          <td>{{ record[6] }}</td>
+          <td>{{ record[7] }}</td>
+          <td>{{ record[8] }}</td>
+          <td>{{ record[9] }}</td>
+          <td>{{ record[10] }}</td>
+          <td>{{ record[11] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="{{ url_for('home') }}">Back to Prediction</a>
+    </div>
+  </body>
+</html>
